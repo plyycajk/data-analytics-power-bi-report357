@@ -2,9 +2,12 @@
 
 ## Contents
 1. [Description](#description)
+    - [Orders Table Transformations](#orders-table-transformations)
+    - [Customers table transformations](#customers-table-transformations)
 1. [Installation instructions](#installation-instructions)
 1. [Usage instructions](#usage-instructions)
 1. [File structure](#file-structure)
+    - [AICore PowerBI Project CKnight.pbix](#aicore-powerbi-project-cknightpbix)
 1. [License information](#license-information)
 
 ## Description
@@ -13,9 +16,6 @@ In this project I connected to a variety of sources in order to retrieve the req
 - SQL Database (Source of the <i>Orders</i> table)
 - Azure Blob Storage (Source of the <i>Stores</i> table)
 - A folder of .csv files (Source of the <i>Customers</i> table)
-
-[Orders table transformations](#orders-table-transformations)
-[Customers table transformations](#customers-table-transformations)
 
 ### Orders table transformations
 
@@ -44,6 +44,9 @@ The columns were renamed in line with PowerBI conventions. The "Full Name" colum
 
 ## File structure
 
+### AiCore PowerBI Project CKnight.pbix.
+
+This is the Power BI file the project was completed in.
 
 
 ## License information
