@@ -2,8 +2,13 @@
 
 ## Contents
 1. [Description](#description)
-    - [Orders Table Transformations](#orders-table-transformations)
-    - [Customers table transformations](#customers-table-transformations)
+    - [Milestone 2 Tasks](#milestone-2-tasks)
+        - [Orders Table Transformations](#orders-table-transformations)
+        - [Customers table transformations](#customers-table-transformations)
+    
+    - [Milestone 3 Tasks](#milestone-3-tasks)
+        - [Date Table](#date-table)
+        - [Data Model](#data-model)
 1. [Installation instructions](#installation-instructions)
 1. [Usage instructions](#usage-instructions)
 1. [File structure](#file-structure)
@@ -16,6 +21,8 @@ In this project I connected to a variety of sources in order to retrieve the req
 - SQL Database (Source of the <i>Orders</i> table)
 - Azure Blob Storage (Source of the <i>Stores</i> table)
 - A folder of .csv files (Source of the <i>Customers</i> table)
+
+### Milestone 2 Tasks
 
 ### Orders table transformations
 
@@ -34,6 +41,26 @@ These transformations were wrapped into a nested IF statement where the required
 
 The columns were renamed in line with PowerBI conventions. The "Full Name" column was created by using the "First Name" and "Last Name" columns, merging the data in these with a space as a delimiter.
 
+### Milestone 3 Tasks
+
+### Date table
+
+A data table was created in using the oldest data in the Orders table....
+
+
+
+### Data model
+
+<b>Data model</b><br>
+![Data model](Data Model Milestone 3.png)
+
+### Measures table
+
+A measures table was created 
+
+
+### Hierarchies
+
 ## Installation instructions
 
 
@@ -46,7 +73,12 @@ The columns were renamed in line with PowerBI conventions. The "Full Name" colum
 
 ### AiCore PowerBI Project CKnight.pbix.
 
-This is the Power BI file the project was completed in.
+This is the Power BI file that the tasks up to the end of Milestone 2 was completed in
 
+### AiCore PowerBI Project CKnight - End of Milestone 3.pbix.
+
+This is the Power BI file that the tasks up to the end of Milestone 3 was completed in
 
 ## License information
+
+None
