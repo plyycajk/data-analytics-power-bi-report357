@@ -47,19 +47,27 @@ The columns were renamed in line with PowerBI conventions. The "Full Name" colum
 
 A data table was created in using the oldest data in the Orders table....
 
-
+To be completed
 
 ### Data model
 
 <b>Data model</b><br>
-![Data model](Data Model Milestone 3.png)
+![Screenshot of Data Model](<Data Model Milestone 3.png>)
 
 ### Measures table
 
-A measures table was created 
+A measures table was created with the following measures and formulas
+
+CALCULATE 
+
+NATURALINNERJOIN
 
 
 ### Hierarchies
+
+Date Hierarchy
+
+Geography Hierarchy - use of SWITCH formula
 
 ## Installation instructions
 
