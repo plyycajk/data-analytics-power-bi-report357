@@ -2,17 +2,21 @@
 
 ## Contents
 1. [Description](#description)
-    - [Milestone 2 Tasks](#milestone-2-tasks)
+    - [Preparing and Transforming Data](#preparing-and-transforming-data)
         - [Orders Table Transformations](#orders-table-transformations)
         - [Customers table transformations](#customers-table-transformations)
     
-    - [Milestone 3 Tasks](#milestone-3-tasks)
+    - [Data model and Measure creation](#data-model-and-measure-creation)
         - [Date Table](#date-table)
         - [Data Model](#data-model)
+        - [Measures Table](#measures-table)
+        - [Hierarchies](#hierarchies)
+1. [Building the report](#building-the-report)
 1. [Installation instructions](#installation-instructions)
 1. [Usage instructions](#usage-instructions)
 1. [File structure](#file-structure)
     - [AICore PowerBI Project CKnight.pbix](#aicore-powerbi-project-cknightpbix)
+    - [SQl_Queries_and_csv_files](#sql_queries_and_csv_files)
 1. [License information](#license-information)
 
 ## Description
@@ -22,7 +26,7 @@ In this project I connected to a variety of sources in order to retrieve the req
 - Azure Blob Storage (Source of the <i>Stores</i> table)
 - A folder of .csv files (Source of the <i>Customers</i> table)
 
-### Milestone 2 Tasks
+### Preparing and Transforming Data
 
 ### Orders table transformations
 
@@ -41,51 +45,111 @@ These transformations were wrapped into a nested IF statement where the required
 
 The columns were renamed in line with PowerBI conventions. The "Full Name" column was created by using the "First Name" and "Last Name" columns, merging the data in these with a space as a delimiter.
 
-### Milestone 3 Tasks
+### Data model and Measure creation
 
 ### Date table
 
-A data table was created in using the oldest data in the Orders table....
+A date table was created by using the oldest data in the Orders table - the dates run from the 1st of January of the year of the first order (2010) and run through to the 31st December in the year with of the latest order. This was achieved with the following formula
 
-To be completed
+Dates = CALENDAR(DATE(YEAR(MIN(Orders[Order_date]),1,1), DATE(YEAR(MAX(Orders[Order_date]),12,31))
+
+The following columns were also added to the table using DAX formula
+
+- Day of Week
+- Month Number (i.e. Jan = 1, Dec = 12 etc.)
+- Month Name
+- Quarter
+- Year
+- Start of Year
+- Start of Quarter
+- Start of Month
+- Start of Week
 
 ### Data model
 
 <b>Data model</b><br>
-![Screenshot of Data Model](<Data Model Milestone 3.png>)
+![Screenshot of Data Model](<Images/Data Model Milestone 3.png>)
 
 ### Measures table
 
-A measures table was created with the following measures and formulas
+A measures table was created to capture the measures written for the report. These included the below examples to calculate TOTAL REVENUE, TOTAL PROFIT AND PREVIOUS QUARTER ORDERS amongst many others
 
-CALCULATE 
+ - Total Revenue = SUMX(Orders, Orders[Product Quantity] * RELATED(Products[Sale Price]))
+ - Total Profit = SUMX(Products,Products[Sale Price]-Products[Cost Price])*RELATED([Product Quantity]))
+ - Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))
 
-NATURALINNERJOIN
+The measures table also includes some measures written for display purposes in the report. For the card filter mentioned later in this file, the following formula was written in order to display the selected filters for a particular slicer (each separated by a comma followed by a space)
 
+CONCATENATEX(ALLSELECTED(Products[Category]),Products[Category],", ")
+
+A variant of this was also used to write a similar card for Store[Country] field.
 
 ### Hierarchies
 
-Date Hierarchy
+Two hierarchies were created for the report - a "Geography" hierarchy for each store. A SWITCH formula was used to create a "Country" column in the table by allocating a country to the codes GB, US and DE (United Kingdom, United States and Germany respectively). These were already listed in a 'Country Code' column. A 'full geography' name for each row was created by concatenating the region and country for each store.
 
-Geography Hierarchy - use of SWITCH formula
+The hierarchy created for the Geography was as follows:
+- World Region
+- Country
+- Country Region
+
+A date hierarchy was also created using the following fields as levels
+
+- Start of Year
+- Start of Quarter
+- Start of Month
+- Start of Week
+- Date
+
+## Building the Report
+
+### Executive Summary
+
+![Exec Screen Shot](<Images/Exec Summary with filter.png>)
+
+This page includes a number of visuals:
+- Revenue line chart with a forecast
+- Two revenue donut charts
+- Card visuals for Revenue, Profit and Orders
+- Orders by product category bar chart
+- KPI cards for quarterly Revenue, Profit and Orders: different selections shown below
+![KPI selection](Images/KPI.png)
+![Second KPI selection](<Images/More KPI.png>)
+
+### Customer Page
+
+![Alt text](<Images/Customer Detail Page.png>)
+
+This page shows: 
+- the customer trend (number of customers) within a line chart
+- the Top 20 cusomters by Revenue (gold bars show relative % of revenue for that customer when compared to the top customer)
+- Total customers per category bar chart
+- Total customers by country donut chart
+- Top customer detail card
+- 'Revenue per customer' and 'Number of Unique Customers' card
+
+### Product Detail
+
 
 ## Installation instructions
 
+Power BI is required in order to load the Power BI file
 
 
 ## Usage instructions
 
+None
 
 
 ## File structure
 
-### AiCore PowerBI Project CKnight.pbix.
+### AiCore PowerBI project CKnight Milestone 4.pbix.
 
-This is the Power BI file that the tasks up to the end of Milestone 2 was completed in
+This is the completed Power BI file for the project
 
-### AiCore PowerBI Project CKnight - End of Milestone 3.pbix.
+### SQL_Queries_and_csv_files
 
-This is the Power BI file that the tasks up to the end of Milestone 3 was completed in
+This folder contains sql files containing queries run on the data (and their associated csv files).
 
 ## License information
 
