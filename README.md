@@ -16,8 +16,8 @@
             - [Customer Page](#customer-page)
             - [Product Detail](#product-detail)
             - [Map Page](#map-page)
-            - [Drill through page](#drill-through)
-            - [Tooltips](#tooltips)
+                - [Hover and Drill through](#tooltip-on-hover-and-drillthrough-on-bubble)
+        - [SQL Queries](#sql-queries)
 1. [Installation instructions](#installation-instructions)
 1. [Usage instructions](#usage-instructions)
 1. [File structure](#file-structure)
@@ -118,8 +118,8 @@ A date hierarchy was also created using the following fields as levels
 ![Exec Screen Shot](<Images/Exec Summary with filter.png>)
 
 This page includes a number of visuals:
-- Revenue line chart with a forecast
-- Two revenue donut charts
+- Revenue line chart with a forecast for the next 10 periods with a 95% confidence interval
+- Two revenue donut charts (by <i>Country</i> and by <i>Store Type</i>)
 - Card visuals for Revenue, Profit and Orders
 - Orders by product category bar chart
 - KPI cards for quarterly Revenue, Profit and Orders: different selections shown below
@@ -146,7 +146,7 @@ This page includes:
 - Gauge visuals for quarterly targets for Revenue, Profit and Orders.
     - Target for each is a 5% increase on the value for the previous quarter
 
-    Dax formulae examples
+    <b>Dax formulae examples</b>
 
     Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))
 
@@ -164,7 +164,7 @@ The four icons on the bottom enable a user to navigate through to the separate s
 
 ![Navigation icons](<Images/Navigation Icons.png>)
 
-This page also has a slicer side bar that pops out when clicking the slicer icon in the top left hand corner
+This page also has a slicer side bar that expans when clicking the slicer icon in the top left hand corner. This keeps the page clean - maximising visualisation space whilst maintaining interactivity through slicers.
 
 ![Slicer Side bar](<Images/Activated slicer bar.png>)
 
@@ -172,9 +172,30 @@ Changing the selections in this side bar slices the visuals - the applied filter
 
 ### Map page
 
-### Drill through page
+![Maps page](<Images/Maps page.png>)
 
-### Tooltips
+The maps page shows the location of stores based on their region - the bubble size is linked to the total store revenue.
+
+The buttons at the top enable the user to slice the data based on the countries in the dataset.
+
+#### <u>Tooltip on hover and Drillthrough on bubble</u>
+
+Hovering over a store bubble brings up a gauge visual in a tooltip. The tooltip displays the Profit YTD and Profit goal based on the previous year for that particular store (target is 20% growth <i>each</i> year).
+
+![Tooltip](<Images/Maps with Tooltip.png>)
+
+A user is also able to drill through an individual store which brings up the following page with greater detail:
+
+![Drillthrough](<Images/Drillthrough page.png>)
+
+This drillthrough page includes:
+- A card detailing the Store location
+- Revenue YTD Gauge visual similar (and in addition) to the 'Profit' gauge that appears in the Tooltip (same 20% year-on-year growth target)
+- Table of the Top 5 products for that store detailing: 
+    - Profit YTD
+    - Total Orders
+    - Total Revenue
+- Bar chart showing the Total Orders by category for this store
 
 ## SQL Queries
 
