@@ -11,7 +11,13 @@
         - [Data Model](#data-model)
         - [Measures Table](#measures-table)
         - [Hierarchies](#hierarchies)
-1. [Building the report](#building-the-report)
+        - [Building the report](#building-the-report)
+            - [Executive Summary](#executive-summary)
+            - [Customer Page](#customer-page)
+            - [Product Detail](#product-detail)
+            - [Map Page](#map-page)
+            - [Drill through page](#drill-through)
+            - [Tooltips](#tooltips)
 1. [Installation instructions](#installation-instructions)
 1. [Usage instructions](#usage-instructions)
 1. [File structure](#file-structure)
@@ -25,6 +31,8 @@ In this project I connected to a variety of sources in order to retrieve the req
 - SQL Database (Source of the <i>Orders</i> table)
 - Azure Blob Storage (Source of the <i>Stores</i> table)
 - A folder of .csv files (Source of the <i>Customers</i> table)
+
+The project was completed on a virtual windows machine runnning on Azure. This was connected to remotely on a Mac via the Microsoft Remote Desktop client
 
 ### Preparing and Transforming Data
 
@@ -66,6 +74,8 @@ The following columns were also added to the table using DAX formula
 - Start of Week
 
 ### Data model
+
+A star schema data model was created with 'orders' as the central table 
 
 <b>Data model</b><br>
 ![Screenshot of Data Model](<Images/Data Model Milestone 3.png>)
@@ -118,7 +128,7 @@ This page includes a number of visuals:
 
 ### Customer Page
 
-![Alt text](<Images/Customer Detail Page.png>)
+![Customer Page](<Images/Customer Detail Page.png>)
 
 This page shows: 
 - the customer trend (number of customers) within a line chart
@@ -130,6 +140,41 @@ This page shows:
 
 ### Product Detail
 
+![Alt text](<Images/Product detail page with filter.png>)
+
+This page includes:
+- Gauge visuals for quarterly targets for Revenue, Profit and Orders.
+    - Target for each is a 5% increase on the value for the previous quarter
+
+    Dax formulae examples
+
+    Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))
+
+    Orders Target = ([Previous Quarter Orders]*1.05)
+
+- Scatter plot of profit per item versus order quantity to show high-selling and high-profit items (broken down by category)
+
+- Area chart of Revenue by Start of Quarter and Cateogry (segmented by product category)
+
+- Top 10 Products by Revenue (similar to Top Customers table)
+
+This screenshot also shows the navigation bar present on the left hand side of each page 
+
+The four icons on the bottom enable a user to navigate through to the separate sections in the report. Each icon turns blue upon hovering over.
+
+![Navigation icons](<Images/Navigation Icons.png>)
+
+This page also has a slicer side bar that pops out when clicking the slicer icon in the top left hand corner
+
+![Slicer Side bar](<Images/Activated slicer bar.png>)
+
+Changing the selections in this side bar slices the visuals - the applied filters show up in the cards in the top left hand corner of the screen (the formulas written to achieve this are discussed in the [Measures table](#measures-table) section)
+
+### Map page
+
+### Drill through page
+
+### Tooltips
 
 ## Installation instructions
 
