@@ -131,7 +131,7 @@ This page includes a number of visuals:
 ![Customer Page](<Images/Customer Detail Page.png>)
 
 This page shows: 
-- the customer trend (number of customers) within a line chart
+- the customer trend (number of customers) within a line chart (with a forecast for the next 10 periods)
 - the Top 20 cusomters by Revenue (gold bars show relative % of revenue for that customer when compared to the top customer)
 - Total customers per category bar chart
 - Total customers by country donut chart
@@ -154,7 +154,7 @@ This page includes:
 
 - Scatter plot of profit per item versus order quantity to show high-selling and high-profit items (broken down by category)
 
-- Area chart of Revenue by Start of Quarter and Cateogry (segmented by product category)
+- Area chart of Revenue by Start of Quarter and Category (segmented by product category)
 
 - Top 10 Products by Revenue (similar to Top Customers table)
 
