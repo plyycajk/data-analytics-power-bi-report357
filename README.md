@@ -176,6 +176,10 @@ Changing the selections in this side bar slices the visuals - the applied filter
 
 ### Tooltips
 
+## SQL Queries
+
+Some SQL queries were written to retreive data from a live database connection. The connection was made via the SQLTools extension on VSCode. The queries and .csv files of the results are enclosed in the SQL_Queries_and_csv_files folder in this repo.
+
 ## Installation instructions
 
 Power BI is required in order to load the Power BI file
