@@ -115,7 +115,7 @@ A date hierarchy was also created using the following fields as levels
 
 ### Executive Summary
 
-![Exec Screen Shot](<Images/Exec Summary with filter.png>)
+![Alt text](<Images/Exec Summary.png>)
 
 This page includes a number of visuals:
 - Revenue line chart with a forecast for the next 10 periods with a 95% confidence interval
@@ -182,7 +182,7 @@ The buttons at the top enable the user to slice the data based on the countries 
 
 Hovering over a store bubble brings up a gauge visual in a tooltip. The tooltip displays the Profit YTD and Profit goal based on the previous year for that particular store (target is 20% growth <i>each</i> year).
 
-![Tooltip](<Images/Maps with Tooltip.png>)
+![Tooltip](<Images/Updated map tooltip.png>)
 
 A user is also able to drill through an individual store which brings up the following page with greater detail:
 
