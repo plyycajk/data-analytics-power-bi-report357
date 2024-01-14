@@ -90,7 +90,7 @@ A measures table was created to capture the measures written for the report. The
 
 The measures table also includes some measures written for display purposes in the report. For the card filter mentioned later in this file, the following formula was written in order to display the selected filters for a particular slicer (each separated by a comma followed by a space)
 
-CONCATENATEX(ALLSELECTED(Products[Category]),Products[Category],", ")
+``CONCATENATEX(ALLSELECTED(Products[Category]),Products[Category],", ")``
 
 A variant of this was also used to write a similar card for Store[Country] field.
 
