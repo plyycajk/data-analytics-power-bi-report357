@@ -59,7 +59,7 @@ The columns were renamed in line with PowerBI conventions. The "Full Name" colum
 
 A date table was created by using the oldest data in the Orders table - the dates run from the 1st of January of the year of the first order (2010) and run through to the 31st December in the year with of the latest order. This was achieved with the following formula
 
-Dates = CALENDAR(DATE(YEAR(MIN(Orders[Order_date]),1,1), DATE(YEAR(MAX(Orders[Order_date]),12,31))
+``Dates = CALENDAR(DATE(YEAR(MIN(Orders[Order_date]),1,1), DATE(YEAR(MAX(Orders[Order_date]),12,31))``
 
 The following columns were also added to the table using DAX formula
 
@@ -84,9 +84,9 @@ A star schema data model was created with 'orders' as the central table
 
 A measures table was created to capture the measures written for the report. These included the below examples to calculate TOTAL REVENUE, TOTAL PROFIT AND PREVIOUS QUARTER ORDERS amongst many others
 
- - Total Revenue = SUMX(Orders, Orders[Product Quantity] * RELATED(Products[Sale Price]))
- - Total Profit = SUMX(Products,Products[Sale Price]-Products[Cost Price])*RELATED([Product Quantity]))
- - Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))
+ - ``Total Revenue = SUMX(Orders, Orders[Product Quantity] * RELATED(Products[Sale Price]))``
+ - ``Total Profit = SUMX(Products,Products[Sale Price]-Products[Cost Price])*RELATED([Product Quantity]))``
+ - ``Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))``
 
 The measures table also includes some measures written for display purposes in the report. For the card filter mentioned later in this file, the following formula was written in order to display the selected filters for a particular slicer (each separated by a comma followed by a space)
 
@@ -148,9 +148,9 @@ This page includes:
 
     <b>Dax formulae examples</b>
 
-    Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))
+    ``Previous Quarter Orders = CALCULATE([Total Orders],PREVIOUSQUARTER(Dates[Date]))``
 
-    Orders Target = ([Previous Quarter Orders]*1.05)
+    ``Orders Target = ([Previous Quarter Orders]*1.05)``
 
 - Scatter plot of profit per item versus order quantity to show high-selling and high-profit items (broken down by category)
 
@@ -205,11 +205,13 @@ Some SQL queries were written to retreive data from a live database connection. 
 
 Power BI is required in order to load the Power BI file
 
+To install the project, download the .pbix file and click on it to open the report
 
 ## Usage instructions
 
-None
+The report can be navigated by selecting the icons on the dark blue panel on the left hand side of each page. Each icon will navigate you to a different page of the report
 
+The slicer icon at the top of the panel on the 'Product detail' page will increase the size of the panel and make some slicing options visible for the page. The filters selected are shown on the blue cards at the top left of the page.
 
 ## File structure
 
